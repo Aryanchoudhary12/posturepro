@@ -3,10 +3,14 @@ import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Form from "./components/form";
 import pose from "@/public/pose.png";
+import { Boxes } from "@/components/ui/background-boxes";
 export default function Home() {
   return (
-    <div className="bg-gradient-to-b from-background via-secondary-foreground to-background">
-      <div className="relative w-full  h-full">
+    <div className="bg-gradient-to-b from-background via-secondary-foreground to-background w-full">
+      <div className="relative w-full min-h-screen  h-full overflow-hidden p-2">
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-background via-secondary-foreground to-background">
+          <Boxes />
+        </div>
         <div className="relative flex justify-start items-start h-full pl-10">
           <div className="relative w-10/12 lg:w-full mt-10">
             <h1 className="text-5xl font-extrabold font-mono leading-14">
