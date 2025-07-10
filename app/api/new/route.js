@@ -2,8 +2,6 @@ import { PrismaClient } from "@/lib/generated/prisma";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOption";
-import cloudinary from "@/lib/cloudinary";
-
 const prisma = new PrismaClient();
 
 export async function POST(req) {
@@ -16,7 +14,7 @@ export async function POST(req) {
 
   try {
     const formData = await req.formData();
-    const file = formData.get("url");
+    const url = formData.get("url");
     const poseFlags = formData.get("poseFlags");
 
     console.log("Raw poseFlags received:", poseFlags);
@@ -31,29 +29,9 @@ export async function POST(req) {
       console.warn("Failed to parse poseFlags JSON", e);
     }
 
-    let videourl = "";
-
-    if (file && typeof file.arrayBuffer === "function") {
-      const buffer = Buffer.from(await file.arrayBuffer());
-
-      const uploaded = await new Promise((resolve, reject) => {
-        cloudinary.uploader.upload_stream(
-          { resource_type: "video", folder: "posture-app" },
-          (error, result) => {
-            if (error) reject(error);
-            else resolve(result);
-          }
-        ).end(buffer);
-      });
-
-      videourl = uploaded.secure_url;
-    } else {
-      return NextResponse.json({ error: "No video file found" }, { status: 400 });
-    }
-
     const newVideo = await prisma.video.create({
       data: {
-        url: videourl,
+        url: url ,
         poseFlags: flags,
         user: {
           connect: {
@@ -71,10 +49,3 @@ export async function POST(req) {
     return NextResponse.json({ error: "Upload failed" }, { status: 500 });
   }
 }
-export const config = {
-  api: {
-    bodyParser: {
-      sizeLimit: "100mb", // or higher, depending on expected file size
-    },
-  },
-};

@@ -13,7 +13,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { Loader } from "lucide-react";
-
+import { uploadToCloudinary } from "@/lib/uploadtocloudinary";
 export default function Form() {
   const inputref = useRef(null);
   const videoRef = useRef(null);
@@ -165,9 +165,9 @@ export default function Form() {
       if (!videourl) return toast.error("Please select a video");
 
       const flags = await analyzeUploadedVideo(); // ✅ wait for pose flags
-
+      const cloudUrl = await uploadToCloudinary(videourl);
       const formdata = new FormData();
-      formdata.append("url", videourl);
+      formdata.append("url", cloudUrl);
       formdata.append("poseFlags", JSON.stringify(flags));
 
       await axios.post("/api/new", formdata);
@@ -210,7 +210,7 @@ export default function Form() {
           />
           <button
             type="submit"
-            className="flex justify-center items-center gap-2 bg-border p-2 rounded-sm font-sans text-white font-medium px-4"
+            className="flex justify-center items-center gap-2 bg-border p-2 rounded-sm font-sans text-white font-medium px-4 hover:bg-border/80 transition-all"
           >
             Submit{" "}
             {submitting ? <Loader className="h-5 w-5 animate-spin" /> : ""}
