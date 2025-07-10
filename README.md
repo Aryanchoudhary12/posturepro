@@ -25,6 +25,10 @@ PosturePro is a full-stack web application that allows users to upload videos or
 ## Deployed Link
 
 - https://posturepro-amber.vercel.app
+## Github links 
+
+- https://github.com/Aryanchoudhary12  -- MY GITHUB ACCOUNT LINK
+-  
 
 ## Deployed on Vercel
 
