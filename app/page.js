@@ -16,7 +16,7 @@ export default function Home() {
             <p className="mt-4 text-lg font-normal font-sans text-gray-300">
               Upload your workout or sitting video — get instant, rule-based
               feedback on slouching, knee-over-toe, and other posture issues.
-              PosturePro is your AI-powered posture assistant. Whether you're
+              PosturePro is your AI-powered posture assistant. Whether you are
               squatting, working at a desk, or exercising, we analyze your
               movements in real time to help you avoid injuries and build better
               habits — no wearables needed.
