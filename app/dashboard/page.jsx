@@ -9,8 +9,7 @@ import {
   Bar,
   XAxis,
   YAxis,
-  Tooltip,
-  ResponsiveContainer,
+
 } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 export default function Dashboard() {
