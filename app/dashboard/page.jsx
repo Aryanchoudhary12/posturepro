@@ -4,13 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import camera from "@/public/photo.png";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis } from "recharts";
 import { ChartContainer } from "@/components/ui/chart";
 export default function Dashboard() {
   const [videos, setVideos] = useState([]);
@@ -52,7 +46,7 @@ export default function Dashboard() {
   return (
     <div className="p-4">
       <div className="flex flex-wrap gap-4 mb-6">
-        <div className="flex flex-col justify-center items-center p-4 bg-secondary-foreground w-fit rounded-md border-2 border-border/40">
+        <div className="flex flex-col justify-center items-center p-4 bg-secondary-foreground rounded-md w-30 border border-[rgba(255,255,255,0.10)]  shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] ">
           <span className="text-sm font-medium font-mono text-secondary">
             Videos
           </span>
@@ -60,7 +54,7 @@ export default function Dashboard() {
             {vidlen}
           </span>
         </div>
-        <div className="flex flex-col justify-center items-center p-4 bg-secondary-foreground w-fit rounded-md border-2 border-border/40">
+        <div className="flex flex-col justify-center items-center p-4 bg-secondary-foreground rounded-md border border-[rgba(255,255,255,0.10)] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]  w-30">
           <span className="text-sm font-medium font-mono text-secondary">
             Pose issues
           </span>
@@ -86,7 +80,7 @@ export default function Dashboard() {
           {videos.map((video) => (
             <div
               key={video.id}
-              className="p-4 rounded-xl border border-[rgba(255,255,255,0.10)] w-80  dark:bg-[rgba(40,40,40,0.70)] bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group"
+              className="p-4 rounded-xl border border-[rgba(255,255,255,0.10)] w-80  dark:bg-[rgba(40,40,40,0.70)]  shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group"
             >
               <video
                 src={video.url}
@@ -120,7 +114,10 @@ export default function Dashboard() {
         CHART ANALYSIS
       </h1>
       <h1 className="text-3xl font-black font-mono mb-4">Overview.</h1>
-      <ChartContainer config={chartConfig} className="w-9/12 pt-4 lg:w-8/12">
+      <ChartContainer
+        config={chartConfig}
+        className="w-full md:w-9/12 pt-4 lg:w-8/12"
+      >
         <BarChart data={ChartData}>
           <XAxis dataKey="name" />
           <YAxis allowDecimals={false} />
