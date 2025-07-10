@@ -10,12 +10,24 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-secondary-foreground: var(--secondary-foreground);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #6EACDA;
+    --secondary: #BBE1FA;
+    --muted: #03346E;
+    --muted-foreground: #0F4C75;
+    --border: #3282B8;
+    --secondary-foreground: #1B262C;
   }
 }
 
