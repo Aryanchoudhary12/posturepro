@@ -71,3 +71,10 @@ export async function POST(req) {
     return NextResponse.json({ error: "Upload failed" }, { status: 500 });
   }
 }
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: "100mb", // or higher, depending on expected file size
+    },
+  },
+};
