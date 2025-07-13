@@ -7,7 +7,7 @@ PosturePro is a full-stack web application that allows users to upload videos or
 # Tech Stack
 
 **Frontend:**
-- [Next.js 14
+- [Next.js 14]
 - [React]
 - [Tailwind CSS]
 - [MediaPipe Tasks-Vision]– pose detection
@@ -25,10 +25,17 @@ PosturePro is a full-stack web application that allows users to upload videos or
 ## Deployed Link
 
 - https://posturepro-amber.vercel.app
+## Github links 
+
+- https://github.com/Aryanchoudhary12  -- MY GITHUB ACCOUNT LINK
+- https://github.com/Aryanchoudhary12/posturepro.git -- REPOSITORY LINK
+
+## DEMO VIDEO LINK
+- https://drive.google.com/file/d/1ELaSkoQL3qRCXj71SkoGSx0vqU6O2COc/view?usp=drive_link -- PROJECT VIDEO
+- https://drive.google.com/file/d/1E_uwkx17En7ggSf43IGhysQKUuzeWRbg/view?usp=drive_link -- CODE VIDEO
 
 ## Deployed on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
