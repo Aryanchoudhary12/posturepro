@@ -66,7 +66,7 @@ export default function Form() {
 
         const now = performance.now();
         const result = await landmarker.detectForVideo(video, now);
-
+        // rule based analysis
         if (result.landmarks.length > 0) {
           const landmarks = result.landmarks[0];
           const nose = landmarks[0];
@@ -120,7 +120,7 @@ export default function Form() {
       const time = performance.now();
       if (video.currentTime !== lastTime) {
         lastTime = video.currentTime;
-
+        // rule based analysis for webcam
         landmarker.detectForVideo(video, time, (result) => {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           if (result.landmarks.length > 0) {
@@ -186,13 +186,16 @@ export default function Form() {
     <div>
       <Toaster />
       <div className="mt-4 flex flex-wrap gap-4">
-        <form className="flex w-fit gap-1" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="flex gap-1 p-1 border border-[rgba(255,255,255,0.15)] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.1)_inset] rounded-sm w-fit backdrop-blur-md"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div
-            className="flex items-center justify-center gap-2 px-4 font-sans font-medium p-1 bg-muted rounded-sm w-fit"
+            className="flex items-center justify-center gap-2 px-4 font-sans font-medium "
             onClick={() => inputref.current.click()}
           >
-            <Image src={upload} alt="upload" className="h-7 w-7" />
-            Upload Video
+            <Image src={upload} alt="upload" className="h-6 w-6" />
+            Add Video
           </div>
           <input
             className="hidden"
@@ -218,7 +221,7 @@ export default function Form() {
         </form>
 
         <button
-          className="relative flex items-center justify-center gap-2 px-4 font-sans font-medium p-2 bg-muted rounded-sm w-fit"
+          className="relative flex items-center justify-center gap-2 px-4 font-sans font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit"
           onClick={() => setRunning((prev) => !prev)}
         >
           <Image src={camera} alt="" className="h-6 w-6" />
@@ -227,13 +230,20 @@ export default function Form() {
       </div>
 
       {/* Webcam Preview */}
-      {running && (
+      {running ? (
         <div className="relative py-4">
-          <video ref={videoRef} className="w-[480px] h-[360px]" />
+          <video ref={videoRef} className="w-[480px] h-[360px] rounded-xl" />
           <canvas
             ref={canvasRef}
             className="absolute top-0 left-0 w-[480px] h-[360px]"
           />
+        </div>
+      ) : (
+        <div className="relative py-4">
+          <div className="max-w-[480px] h-[360px] backdrop-blur-lg border border-white/10 rounded-xl shadow-[2px_4px_16px_0px_rgba(248,248,248,0.1)_inset] bg-white/5 flex flex-col justify-center items-center" >
+            <Image src={camera} alt="camera" className="h-28 w-28"></Image>
+            <p className="font-mono font-medium">Press &quot;Start Webcam&quot; button to start .</p>
+          </div>
         </div>
       )}
 

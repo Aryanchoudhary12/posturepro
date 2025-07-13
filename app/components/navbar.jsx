@@ -10,56 +10,47 @@ function Navbar() {
   const { data: session } = useSession();
   const pathname = usePathname();
   return (
-    <div className="flex items-center justify-between p-3">
+    <div className="flex items-center justify-between p-3 border-b border-b-primary/30 fixed z-50 w-full bg-background">
       <div className="title h-full ">
         <h1 className="text-2xl font-bold font-mono">
           Posture<span className="text-primary">Pro</span>
         </h1>
       </div>
       <div className="flex justify-center items-center gap-4 pr-4">
-        <ul className=" gap-4 flex">
-          <li>
-            <Link
-              href="/"
-              className="text-lg font-sans font-medium flex justify-center items-center gap-1"
-            >
-              <Image
-                src={home}
-                alt="home"
-                height={400}
-                width={400}
-                className={`h-8 w-8 ${
-                  pathname == "/" ? "p-1 bg-secondary-foreground rounded-sm" : "p-1"
-                }`}
-              ></Image>
-            </Link>
-          </li>
-          <li>
-            <Link href="/dashboard">
-              <Image
-                src={dashboard}
-                alt="dashboard"
-                height={400}
-                width={400}
-                className={`h-8 w-8 ${
-                  pathname == "/dashboard"
-                    ? "p-1 bg-secondary-foreground rounded-sm"
-                    : "p-1"
-                }`}
-              ></Image>
-            </Link>
-          </li>
+        <ul className=" gap-5 flex">
+          <Link
+            href="/"
+            className={`flex justify-center items-center p-2 rounded-full border border-white/10 ${
+              pathname == "/" ? "bg-primary/10" : ""
+            }`}
+          >
+            <Image
+              src={home}
+              alt="home"
+              height={400}
+              width={400}
+              className="h-4 w-4"
+            ></Image>
+          </Link>
+          <Link
+            href="/dashboard"
+            className={`text-base font-MONO font-semibold flex justify-center items-center mr-2 ${
+              pathname == "/dashboard" ? "border-b text-primary" : "text-secondary"
+            }`}
+          >
+            <p className="">Dashboard</p>
+          </Link>
         </ul>
         {session ? (
           <button
-            className=" bg-border/90 p-2  rounded-full px-4 text-base font-medium font-sans text-white"
+            className=" relative flex items-center justify-center font-mono px-6 font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit"
             onClick={signOut}
           >
             Sign Out
           </button>
         ) : (
           <button
-            className=" bg-border/90 p-2  rounded-full px-4 text-base font-medium font-sans text-white"
+            className="relative flex items-center justify-center font-mono px-6 font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit"
             onClick={signIn}
           >
             Sign In

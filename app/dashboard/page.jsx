@@ -63,8 +63,8 @@ export default function Dashboard() {
           </span>
         </div>
       </div>
-      <h1 className="text-sm font-normal font-sans text-gray-400">
-        MY POSTURE ANALYSIS
+      <h1 className="text-sm font-medium font-mono text-gray-400 mb-1">
+        My Posture analysis
       </h1>
       <h1 className="text-3xl font-black font-mono mb-4">Overview.</h1>
       {loading ? (
@@ -110,8 +110,8 @@ export default function Dashboard() {
           ))}
         </div>
       )}
-      <h1 className="text-sm font-normal font-sans text-gray-400 mt-6">
-        CHART ANALYSIS
+      <h1 className="text-sm font-medium font-mono text-gray-400 mb-1 mt-4">
+        Graphical analysis
       </h1>
       <h1 className="text-3xl font-black font-mono mb-4">Overview.</h1>
       <ChartContainer
