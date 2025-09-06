@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import home from "@/public/home.png";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { LayoutDashboard } from "lucide-react";
+import { LayoutDashboard, LogIn, LogOut } from "lucide-react";
 function Navbar() {
   const { data: session } = useSession();
   const pathname = usePathname();
@@ -38,22 +38,24 @@ function Navbar() {
               pathname == "/dashboard" ? "text-primary" : "text-secondary"
             }`}
           >
-            <LayoutDashboard/>
+            <LayoutDashboard />
           </Link>
         </ul>
         {session ? (
           <button
-            className=" relative flex items-center text-sm justify-center font-mono px-6 font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit"
+            className=" relative flex items-center text-sm justify-center font-mono md:px-6 font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit gap-2"
             onClick={signOut}
           >
-            Sign Out
+            <LogOut className="size-5"/>
+            <p className="hidden md:block">Sign In</p>{" "}
           </button>
         ) : (
           <button
-            className="relative flex items-center justify-center text-sm font-mono px-6 font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit"
+            className="relative flex items-center justify-center text-sm font-mono md:px-6 font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit gap-2"
             onClick={signIn}
           >
-            Sign In
+            <LogIn className="size-5"/>
+            <p className="hidden md:block">Sign In</p>
           </button>
         )}
       </div>
