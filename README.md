@@ -7,7 +7,7 @@ PosturePro is a full-stack web application that allows users to upload videos or
 # Tech Stack
 
 **Frontend:**
-- [Next.js 14]
+- [Next.js 14
 - [React]
 - [Tailwind CSS]
 - [MediaPipe Tasks-Vision]– pose detection

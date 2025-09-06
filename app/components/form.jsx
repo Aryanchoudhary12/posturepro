@@ -240,7 +240,7 @@ export default function Form() {
         </div>
       ) : (
         <div className="relative py-4">
-          <div className="max-w-[480px] h-[360px] backdrop-blur-lg border border-white/10 rounded-xl shadow-[2px_4px_16px_0px_rgba(248,248,248,0.1)_inset] bg-white/5 flex flex-col justify-center items-center" >
+          <div className="max-w-[480px] h-[360px] backdrop-blur-lg border border-white/10 rounded-xl shadow-[2px_4px_16px_0px_rgba(248,248,248,0.1)_inset] bg-white/5 flex flex-col justify-center items-center p-5" >
             <Image src={camera} alt="camera" className="h-28 w-28"></Image>
             <p className="font-mono font-medium">Press &quot;Start Webcam&quot; button to start .</p>
           </div>

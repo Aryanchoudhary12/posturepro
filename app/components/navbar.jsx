@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import home from "@/public/home.png";
-import dashboard from "@/public/dashboard.png";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { LayoutDashboard } from "lucide-react";
 function Navbar() {
   const { data: session } = useSession();
   const pathname = usePathname();
@@ -35,22 +35,22 @@ function Navbar() {
           <Link
             href="/dashboard"
             className={`text-base font-MONO font-semibold flex justify-center items-center mr-2 ${
-              pathname == "/dashboard" ? "border-b text-primary" : "text-secondary"
+              pathname == "/dashboard" ? "text-primary" : "text-secondary"
             }`}
           >
-            <p className="">Dashboard</p>
+            <LayoutDashboard/>
           </Link>
         </ul>
         {session ? (
           <button
-            className=" relative flex items-center justify-center font-mono px-6 font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit"
+            className=" relative flex items-center text-sm justify-center font-mono px-6 font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit"
             onClick={signOut}
           >
             Sign Out
           </button>
         ) : (
           <button
-            className="relative flex items-center justify-center font-mono px-6 font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit"
+            className="relative flex items-center justify-center text-sm font-mono px-6 font-medium p-2 bg-gradient-to-r from-emerald-500 via-emerald-700 to-emerald-800 rounded-sm w-fit"
             onClick={signIn}
           >
             Sign In
