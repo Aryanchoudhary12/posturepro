@@ -16,14 +16,14 @@ export default function Home() {
             className="min-h-[40rem] object-cover w-full blur-xs"
           ></Image>
         </div>
-        <div className="relative flex justify-start items-start h-full pl-10">
+        <div className="relative flex justify-center items-center h-full pl-10">
           <div className="relative w-10/12 lg:w-full mt-10">
-            <h1 className="text-xl font-extrabold font-mono">
+            <h1 className="text-base md:text-xl font-extrabold font-mono text-center md:text-left">
               Improve Your Posture with
               <br />
-              <span className="font-mono text-6xl">Posture<span className="text-primary">Pro</span></span>
+              <span className="font-mono text-5xl md:text-6xl">Posture<span className="text-primary">Pro</span></span>
             </h1>
-            <p className="mt-4 text-base font-normal font-sans text-gray-300">
+            <p className="mt-4 text-base font-normal font-sans text-gray-300 text-center md:text-left">
               Upload your workout or sitting video — get instant, rule-based
               feedback on slouching, knee-over-toe, and other posture issues.
               PosturePro is your AI-powered posture assistant. Whether you are
@@ -31,7 +31,7 @@ export default function Home() {
               movements in real time to help you avoid injuries and build better
               habits — no wearables needed.
             </p>
-            <div className="flex text-sm mt-4  items-center gap-1 font-mono font-medium">
+            <div className="flex text-sm mt-4  items-center justify-center md:justify-start gap-1 font-mono font-medium">
               <ExternalLink className="h-5 w-5" /> TRY IT NOW
             </div>
             <Form />

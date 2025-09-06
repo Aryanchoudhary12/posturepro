@@ -185,7 +185,7 @@ export default function Form() {
   return (
     <div>
       <Toaster />
-      <div className="mt-4 flex flex-wrap gap-4">
+      <div className="mt-4 flex flex-wrap justify-center md:justify-start gap-4">
         <form
           className="flex gap-1 p-1 border border-[rgba(255,255,255,0.15)] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.1)_inset] rounded-sm w-fit backdrop-blur-md"
           onSubmit={handleSubmit(onSubmit)}
@@ -231,7 +231,7 @@ export default function Form() {
 
       {/* Webcam Preview */}
       {running ? (
-        <div className="relative py-4">
+        <div className="relative py-4 flex justify-center md:justify-start">
           <video ref={videoRef} className="w-[480px] h-[360px] rounded-xl" />
           <canvas
             ref={canvasRef}
@@ -239,8 +239,8 @@ export default function Form() {
           />
         </div>
       ) : (
-        <div className="relative py-4">
-          <div className="max-w-[480px] h-[360px] backdrop-blur-lg border border-white/10 rounded-xl shadow-[2px_4px_16px_0px_rgba(248,248,248,0.1)_inset] bg-white/5 flex flex-col justify-center items-center p-5" >
+        <div className="relative py-4 flex justify-center md:justify-start">
+          <div className="min-w-60 max-w-[480px] h-[360px] backdrop-blur-lg border border-white/10 rounded-xl shadow-[2px_4px_16px_0px_rgba(248,248,248,0.1)_inset] bg-white/5 flex flex-col justify-center items-center p-5" >
             <Image src={camera} alt="camera" className="h-28 w-28"></Image>
             <p className="font-mono font-medium text-center">Press &quot;Start Webcam&quot; button to start .</p>
           </div>
