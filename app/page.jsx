@@ -16,7 +16,7 @@ export default function Home() {
             className="min-h-[40rem] object-cover w-full blur-xs"
           ></Image>
         </div>
-        <div className="relative flex justify-center items-center h-full pl-10">
+        <div className="relative flex justify-center items-center h-full p-4 md:pl-10">
           <div className="relative w-10/12 lg:w-full mt-10">
             <h1 className="text-base md:text-xl font-extrabold font-mono text-center md:text-left">
               Improve Your Posture with
